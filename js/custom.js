@@ -139,8 +139,9 @@ $('#contactform').submit(function(){
         $('#message').hide();
 
         $('#submit')
-            .after('<img src="img/ajax-loader.gif" class="loader" />')
-            .attr('disabled','disabled');
+            //.after('<img src="img/ajax-loader.gif" class="loader" />')
+            //.attr('disabled','disabled');
+            .html('Thank You!');
 
         $.post(action, {
             name: $('#name').val(),
@@ -148,11 +149,12 @@ $('#contactform').submit(function(){
             comments: $('#comments').val()
         },
             function(data){
-                document.getElementById('message').innerHTML = data;
-                $('#message').slideDown(300);
-                $('#contactform img.loader').fadeOut('slow',function(){$(this).remove()});
-                $('#submit').removeAttr('disabled');
-                if(data.match('success') != null) $('#contactform').slideUp('slow');
+                console.log(data);
+                //document.getElementById('message').innerHTML = data;
+                //$('#message').slideDown(300);
+                //$('#contactform img.loader').fadeOut('slow',function(){$(this).remove()});
+                //$('#submit').removeAttr('disabled');
+                //if(data.match('success') != null) $('#contactform').slideUp('slow');
 
             }
         );
